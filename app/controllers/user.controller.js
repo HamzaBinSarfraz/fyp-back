@@ -1,4 +1,8 @@
 const UserSchema = require("../models/user.model");
+const jwt = require("jsonwebtoken");
+const key = require("../../config/db.config").secret;
+
+var token = jwt.sign({ foo: "bar" }, key, { expiresIn: "365d" });
 
 exports.createUser = (req, res) => {
   var newUser = new UserSchema({
@@ -12,7 +16,8 @@ exports.createUser = (req, res) => {
       if (data) {
         return res.status(200).send({
           status: true,
-          data: data
+          data: data,
+          token: token
         });
       } else {
         return res.status(200).send({
@@ -41,7 +46,8 @@ exports.userLogin = (req, res) => {
         .then(newData => {
           return res.status(200).send({
             status: true,
-            data: newData
+            data: newData,
+            token: token
           });
         })
         .catch(err => {
