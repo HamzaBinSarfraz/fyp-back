@@ -41,7 +41,8 @@ exports.userLogin = (req, res) => {
     if (data) {
       return res.status(200).send({
         status: true,
-        data: data
+        data: data, 
+        token: token
       });
     } else {
       return res.status(200).send({
