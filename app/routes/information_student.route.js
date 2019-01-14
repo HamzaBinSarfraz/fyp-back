@@ -1,5 +1,4 @@
 const bla = require("../../utility/verify_token.middleware");
-const bla = require("../../utility/verify_token.middleware");
 
 module.exports = app => {
   const StudentInfo = require("../controllers/information_student.controller");
