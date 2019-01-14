@@ -39,30 +39,23 @@ exports.userLogin = (req, res) => {
     username: req.body.username
   }).then(data => {
     if (data) {
-      var str = data.skills.join();
-      var array = str.split(",");
-
-      UserPost.find({ job_category: { $in: array } })
-        .then(newData => {
-          return res.status(200).send({
-            status: true,
-            data: newData,
-            token: token
-          });
-        })
-        .catch(err => {
-          return res.status(200).send({
-            status: false,
-            message: err.message
-          });
-        });
+      return res.status(200).send({
+        status: true,
+        data: data
+      });
     } else {
       return res.status(200).send({
         status: false,
         message: "user not found"
       });
     }
-  });
+  })
+  .catch(err => {
+    return res.status(200).send({
+      status: false,
+      message: err.message
+    });
+  })
 };
 
 exports.findOneUser = (req, res) => {
