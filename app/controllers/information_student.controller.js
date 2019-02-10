@@ -83,6 +83,10 @@ exports.updateStudentInfo = (req, res) => {
     },
     {
       $set: {
+        university: req.body.university,
+        campus: req.body.campus, 
+        degree_program: req.body.degree_program, 
+        admission_session: req.body.admission_session,
         student_name: req.body.student_name,
         father_name: req.body.father_name,
         gender: req.body.gender,

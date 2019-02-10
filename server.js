@@ -38,7 +38,7 @@ mongoose
 
 // define a simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to job portal" });
+  res.json({ message: "Welcome to fyp" });
 });
 
 // import all routes at once

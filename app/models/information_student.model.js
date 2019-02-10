@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 var StudentInfoSchema = mongoose.Schema({
+  university: String,
+  campus: String, 
+  degree_program: String, 
+  admission_session: String,
   student_name: String,
   father_name: String,
   gender: String,
