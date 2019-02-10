@@ -1,7 +1,7 @@
 const StudentInfoSchema = require("../models/student_information_one.model");
 
 exports.createStudent = (req, res) => {
-  var newStudentInfo = new StudentInfoSchema(req.body);
+  const newStudentInfo = new StudentInfoSchema(req.body);
   newStudentInfo
     .save()
     .then(data => {
@@ -11,7 +11,7 @@ exports.createStudent = (req, res) => {
           data: data
         });
       } else {
-        return res.status(200).send({
+        return res.status(200).varsend({
           status: false,
           message: "unable to create user"
         });

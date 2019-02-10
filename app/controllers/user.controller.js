@@ -35,9 +35,12 @@ exports.createUser = (req, res) => {
 };
 
 exports.userLogin = (req, res) => {
+  console.log(req.body);
+  
   UserSchema.findOne({
-    username: req.body.username
+    name: req.body.username
   }).then(data => {
+    
     if (data) {
       return res.status(200).send({
         status: true,

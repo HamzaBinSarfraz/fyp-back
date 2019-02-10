@@ -83,21 +83,19 @@ exports.updateStudentInfo = (req, res) => {
     },
     {
       $set: {
-        institution: req.body.institution,
-        campus: req.body.campus,
-        degree_program: req.body.degree_program,
-        admission_session: req.body.admission_session,
-        roll_number: req.body.roll_number,
-        cnic: req.body.cnic,
-        name: req.body.name,
-        gender: req.body.gender,
+        student_name: req.body.student_name,
         father_name: req.body.father_name,
-        uni_reg_no: req.body.uni_reg_no,
-        credit_examptd: req.body.credit_examptd,
-        semester: req.body.semester,
-        hssc: req.body.hssc,
-        total: req.body.total,
-        remarks: req.body.remarks
+        gender: req.body.gender,
+        roll_no: req.body.roll_no,
+        admission_date: req.body.admission_date,
+        nationality: req.body.nationality,
+        cnic: req.body.cnic,
+        date_of_birth: req.body.date_of_birth,
+        mailing_address: req.body.mailing_address,
+        city_mail_address: req.body.city_mail_address,
+        hssc_degree_name: req.body.hssc_degree_name,
+        hssc_total_marks: req.body.hssc_total_marks,
+        hssc_obtained_marks: req.body.hssc_obtained_marks
       }
     },
     {

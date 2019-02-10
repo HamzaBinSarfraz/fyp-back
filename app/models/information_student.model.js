@@ -1,27 +1,21 @@
 const mongoose = require("mongoose");
 
-var StudentInfoSchema = mongoose.Schema(
-  {
-    institution: String,
-    campus: String,
-    degree_program: String, 
-    admission_session: String, 
-    serial_number: String, 
-    roll_number: String, 
-    cnic: Number, 
-    name: String, 
-    gender: String, 
-    father_name: String, 
-    uni_reg_no: String, 
-    credit_examptd: String, 
-    semester: String, 
-    hssc: String, 
-    total: String, 
-    remarks: String
-  },
-  {
-    timestamp: true
-  }
-);
+var StudentInfoSchema = mongoose.Schema({
+  student_name: String,
+  father_name: String,
+  gender: String,
+  roll_no: String,
+  admission_date: String,
+  nationality: String,
+  cnic: String,
+  date_of_birth: String,
+  mailing_address: String,
+  city_mail_address: String,
+  hssc_degree_name: String,
+  hssc_total_marks: String,
+  hssc_obtained_marks: String
+}, {
+  timestamp: true
+});
 
 module.exports = mongoose.model("studentinfo", StudentInfoSchema);

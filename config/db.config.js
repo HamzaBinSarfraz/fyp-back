@@ -1,5 +1,5 @@
 module.exports = {
   secret: "dosto",
   url:
-    "mongodb://dosto:dosto123@ds157204.mlab.com:57204/fyp"
+    "mongodb://aaa:123asd@ds255924.mlab.com:55924/fyp"
 };
