@@ -7,6 +7,10 @@ var UserSchema = mongoose.Schema(
     email: {
       type: String,
       require: true
+    },
+    role: {
+      type: String,
+      enum: ['Student', 'Administrator', 'Faculty']
     }
   },
   {
