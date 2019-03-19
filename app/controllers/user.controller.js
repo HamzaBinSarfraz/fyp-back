@@ -8,7 +8,8 @@ exports.createUser = (req, res) => {
   var newUser = new UserSchema({
     name: req.body.name,
     password: req.body.password,
-    email: req.body.email
+    email: req.body.email,
+    role: req.body.role
   });
   newUser
     .save()
