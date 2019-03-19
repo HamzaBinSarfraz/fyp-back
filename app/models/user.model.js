@@ -10,7 +10,7 @@ var UserSchema = mongoose.Schema(
     },
     // 0: admin, 1: student, 2: faculty
     role: {
-      type: String,
+      type: Number,
       enum: ['0', '1', '2']
     }
   },
