@@ -8,6 +8,7 @@ var UserSchema = mongoose.Schema(
       type: String,
       require: true
     },
+    // 0: admin, 1: student, 2: faculty
     role: {
       type: String,
       enum: ['0', '1', '2']

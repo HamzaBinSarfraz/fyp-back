@@ -38,7 +38,7 @@ exports.userLogin = (req, res) => {
   console.log(req.body);
   
   UserSchema.findOne({
-    name: req.body.username
+    email: req.body.email
   }).then(data => {
     
     if (data) {
