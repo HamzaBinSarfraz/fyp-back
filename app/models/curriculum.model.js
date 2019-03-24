@@ -1,51 +1,53 @@
 const mongoose = require("mongoose");
 
 var Curriculum = mongoose.Schema({
-    semester_one: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    semester_two: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    semester_three: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    semester_four: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    semester_five: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    semester_six: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    semester_seven: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    semester_eight: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }], 
-    elective_courses: [{
-        course_code: String, 
-        course_title: String, 
-        credit_hour: String
-    }]
+    institution: String,
+    program: String,
+    date: String,
+
+    computingCoreCoursesCreditHours: String,
+    majorBaseCoreCreditHours: String,
+    majorBaseElectiveCreditHours: String,
+    supportinSciencesCreditHours: String,
+    generalElectivesCreditHours: String,
+    universityElectivesCreditHours: String,
+
+    computingCoreCoursesCumulativeCreditHours: String,
+    majorBaseCoreCumulativeCreditHours: String,
+    majorBaseElectiveCumulativeCreditHours: String,
+    supportinSciencesCumulativeCreditHours: String,
+    generalElectivesCumulativeCreditHours: String,
+    universityElectivesCumulativeCreditHours: String,
+
+    courseCode: String,
+    courseTitle: String,
+    creditHour: String,
+    prerequiste: String,
+
+    courseCode1: String,
+    courseTitle1: String,
+    creditHour1: String,
+    prerequiste1: String, 
+
+    courseCode2: String,
+    courseTitle2: String,
+    creditHour2: String,
+    prerequiste2: String, 
+
+    courseCode3: String,
+    courseTitle3: String,
+    creditHour3: String,
+    prerequiste3: String, 
+
+    courseCode4: String,
+    courseTitle4: String,
+    creditHour4: String,
+    prerequiste4: String, 
+
+    courseCode5: String,
+    courseTitle5: String,
+    creditHour5: String,
+    prerequiste5: String
 }, {
     timestamp: true
 });

@@ -1,5 +1,29 @@
 const Curriculum = require("../models/curriculum.model");
 
+exports.create = (req, res) => {
+    var course = new Curriculum(req.body);
+    course
+        .save()
+        .then(data => {
+            if (data) {
+                return res.status(200).send({
+                    status: true,
+                    data: data
+                });
+            } else {
+                return res.status(200).send({
+                    status: false,
+                    message: "unable to create user"
+                });
+            }
+        })
+        .catch(err => {
+            return res.status(200).send({
+                status: false,
+                message: err.message
+            });
+        });
+};
 
 exports.getAll = (req, res) => {
     // let curriculum = new Curriculum(req.body);
