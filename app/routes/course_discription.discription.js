@@ -5,5 +5,5 @@ module.exports = app => {
 
     app.post("/coursediscription", bla.jwtVerify, Course.create);
     app.get("/coursediscription", bla.jwtVerify, Course.findAll);
-    app.get("/coursediscription/:id", bla.jwtVerify, Course.deleteCourse);
+    app.delete("/coursediscription/:id", bla.jwtVerify, Course.deleteCourse);
 };
