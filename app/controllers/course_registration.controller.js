@@ -50,3 +50,19 @@ exports.findAll = (req, res) => {
         });
 };
 
+
+exports.delete = (req, res) => {
+    CourseReg.findByIdAndDelete(req.params.id)
+    .then(data => {
+        res.status(200).json({
+            status: true,
+            message: "Deleted successfully ..."
+        })
+    })
+    .catch(err => {
+        res.status(200).json({
+            status: false,
+            message: err.message
+        })
+    })
+}

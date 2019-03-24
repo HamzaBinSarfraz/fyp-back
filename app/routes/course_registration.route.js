@@ -5,4 +5,5 @@ module.exports = app => {
 
     app.post("/coursereg", bla.jwtVerify, CourseReg.create);
     app.get("/coursereg", bla.jwtVerify, CourseReg.findAll);
+    app.delete("/coursereg/:id", bla.jwtVerify, CourseReg.delete);
 };

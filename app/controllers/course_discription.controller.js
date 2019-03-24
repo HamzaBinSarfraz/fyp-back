@@ -50,7 +50,7 @@ exports.findAll = (req, res) => {
         });
 };
 
-exports.deleteCourse = (req, res) => {
+exports.delete = (req, res) => {
     CourseDiscription.findByIdAndDelete(req.params.id)
     .then(data => {
         res.status(200).json({
