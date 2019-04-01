@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+var uniqueValidator = require('mongoose-unique-validator');
 var StudentInfoSchema = mongoose.Schema({
   university: String,
   campus: String, 
@@ -25,5 +25,7 @@ var StudentInfoSchema = mongoose.Schema({
 }, {
   timestamp: true
 });
+
+StudentInfoSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model("studentinfo", StudentInfoSchema);
