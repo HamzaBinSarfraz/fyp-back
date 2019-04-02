@@ -6,4 +6,8 @@ module.exports = app => {
     app.post("/curriculum", bla.jwtVerify, curriculum.create);
     app.get("/curriculum", bla.jwtVerify, curriculum.getAll);
     app.delete("/curriculum/:id", bla.jwtVerify, curriculum.delete);
+
+    app.get('/curriculum/:id', bla.jwtVerify, curriculum.getOne);
+
+    app.put('/curriculum/:id', bla.jwtVerify, curriculum.updateOne);
 };
