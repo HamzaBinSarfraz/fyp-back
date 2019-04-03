@@ -8,4 +8,5 @@ module.exports = app => {
   app.get("/login", bla.jwtVerify, User.findAllUser);
   app.get("/login/:userId", bla.jwtVerify, User.findOneUser);
   // app.get('/skills', User.findPostBySkills);
+  app.put('/login/:id', bla.jwtVerify, User.changePassword);
 };

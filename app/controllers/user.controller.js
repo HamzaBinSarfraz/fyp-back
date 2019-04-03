@@ -111,3 +111,25 @@ exports.findAllUser = (req, res) => {
       });
     });
 };
+
+exports.changePassword = (req, res) => {
+  UserSchema.update({
+    _id: req.params.id
+  }, {
+    $set: {
+      password: req.body.password
+    }
+  })
+  .then(data => {
+    return res.status.send({
+      status: true, 
+      message: "updated successfully ... "
+    })
+  })
+  .catch(err => {
+    return res.status.send({
+      status: false, 
+      message: err.message
+    })
+  })
+}
