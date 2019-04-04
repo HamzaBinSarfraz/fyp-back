@@ -54,53 +54,90 @@ exports.findId = (req, res) => {
 
 exports.updateInstitute = (req, res) => {
     InstitutionFaculty.update({
-        _id: req.params.id
-    }, {
-        $set: {
-            university: req.body.university,
-            campus: req.body.campus,
-            date: req.body.date,
-            sr_no: req.body.sr_no,
-            cnic: req.body.cnic,
-            nameOfFacultyMember: req.body.nameOfFacultyMember,
-            gender: req.body.gender,
-            regNo: req.body.regNo,
-            degree: req.body.degree,
-            creadit: req.body.creadit,
-            dateOfAward: req.body.dateOfAward,
-            nameOfUni: req.body.nameOfUni,
-            country: req.body.country,
-            fullTime: req.body.fullTime
-        }
-    }
-    ).then(data => {
-        return res.status(200).send({
-            status: true,
-            message: "Updated ... "
+            _id: req.params.id
+        }, {
+            $set: {
+                university: req.body.university,
+                campus: req.body.campus,
+                date: req.body.date,
+                sr_no: req.body.sr_no,
+                cnic: req.body.cnic,
+                nameOfFacultyMember: req.body.nameOfFacultyMember,
+                gender: req.body.gender,
+                regNo: req.body.regNo,
+                degree: req.body.degree,
+                creadit: req.body.creadit,
+                dateOfAward: req.body.dateOfAward,
+                nameOfUni: req.body.nameOfUni,
+                country: req.body.country,
+                fullTime: req.body.fullTime
+            }
+        }).then(data => {
+            return res.status(200).send({
+                status: true,
+                message: "Updated ... "
+            })
         })
-    })
-    .catch(err => {
-        return res.status(200).send({
-            status: false,
-            message: err.message
+        .catch(err => {
+            return res.status(200).send({
+                status: false,
+                message: err.message
+            })
         })
-    })
 }
 
 exports.deleteI = (req, res) => {
     InstitutionFaculty.deleteOne({
-        _id: req.params.id
-    })
-    .then(data => {
-        return res.status(200).send({
-            status: true,
-            message: "deleted ... "
+            _id: req.params.id
         })
-    })
-    .catch(err => {
-        return res.status(200).send({
-            status: false,
-            message: err.message
+        .then(data => {
+            return res.status(200).send({
+                status: true,
+                message: "deleted ... "
+            })
         })
-    })
+        .catch(err => {
+            return res.status(200).send({
+                status: false,
+                message: err.message
+            })
+        })
+}
+
+exports.searchI = (req, res) => {
+    var search = req.body.searchtext;
+    console.log(search);
+    // regex to find records that start with letter any name , example "e"
+    InstitutionFaculty.aggregate([{
+            $match: {
+                $or: [{
+                    cnic: {
+                        $regex: "^" + search,
+                        $options: "i"
+                    },
+                }, ]
+
+            }
+        },
+
+    ]).exec(function (err, result) {
+        if (err) {
+            return res.status(200).send({
+                success: false,
+                message: err.message
+            });
+        } else {
+            if (result > 0) {
+                return res.status(200).send({
+                    success: true,
+                    message: "no record found"
+                });
+            } else {
+                return res.status(200).send({
+                    success: true,
+                    data: result
+                });
+            }
+        }
+    });
 }

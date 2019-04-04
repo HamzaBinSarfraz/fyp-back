@@ -10,4 +10,6 @@ module.exports = app => {
     app.put("/faculty/:id", bla.jwtVerify, Faculty.updateFaculty);
 
     app.get('/faculty/:id', bla.jwtVerify, Faculty.getOne);
+
+    
 };
