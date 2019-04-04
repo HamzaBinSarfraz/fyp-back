@@ -8,4 +8,6 @@ module.exports = app => {
     app.delete("/faculty/:id", bla.jwtVerify, Faculty.delete);
 
     app.put("/faculty/:id", bla.jwtVerify, Faculty.updateFaculty);
+
+    app.get('/faculty/:id', bla.jwtVerify, Faculty.getOne);
 };

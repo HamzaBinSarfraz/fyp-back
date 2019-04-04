@@ -68,7 +68,7 @@ exports.delete = (req, res) => {
 
 exports.updateFaculty = (req, res) => {
     Faculty.update({
-        _id: req.parmas.id
+        _id: req.params.id
     },
         {
             $set: {
@@ -123,4 +123,23 @@ exports.updateFaculty = (req, res) => {
             })
         })
 }
+
+exports.getOne = (req, res) => {
+    Faculty.findOne({
+        _id: req.params.id
+    })
+    .then(data => {
+        return res.status(200).send({
+            status: true, 
+            data: data
+        })
+    })
+    .catch(err => {
+        return res.status(200).send({
+            status: false, 
+            message: err.message
+        })
+    })
+}
+
 

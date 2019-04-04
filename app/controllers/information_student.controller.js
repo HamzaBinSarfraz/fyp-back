@@ -137,3 +137,7 @@ exports.deleteStudentInfo = (req, res) => {
       });
     });
 };
+
+exports.searchStudent = (req, res) => {
+  
+}
