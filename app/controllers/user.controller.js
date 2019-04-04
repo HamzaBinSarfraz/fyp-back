@@ -113,7 +113,7 @@ exports.findAllUser = (req, res) => {
 };
 
 exports.changePassword = (req, res) => {
-  UserSchema.update({
+  UserSchema.updateOne({
     _id: req.params.id
   }, {
     $set: {
@@ -121,13 +121,13 @@ exports.changePassword = (req, res) => {
     }
   })
   .then(data => {
-    return res.status.send({
+    return res.status(200).send({
       status: true, 
       message: "updated successfully ... "
     })
   })
   .catch(err => {
-    return res.status.send({
+    return res.status(200).send({
       status: false, 
       message: err.message
     })
