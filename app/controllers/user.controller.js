@@ -37,7 +37,8 @@ exports.createUser = (req, res) => {
 
 exports.userLogin = (req, res) => {
   UserSchema.findOne({
-    email: req.body.email
+    email: req.body.email,
+    password: req.body.password
   }).then(data => {
     
     if (data) {
