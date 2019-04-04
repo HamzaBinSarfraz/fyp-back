@@ -9,5 +9,5 @@ module.exports = app => {
   app.put("/studentinfo/:id", bla.jwtVerify, StudentInfo.updateStudentInfo);
   app.delete("/studentinfo/:id", bla.jwtVerify, StudentInfo.deleteStudentInfo);
 
-  // app.post('/studentinfo', bla.jwtVerify, StudentInfo.searchStudent);
+  app.post('/studentinfo/search', bla.jwtVerify, StudentInfo.searchStudent);
 };

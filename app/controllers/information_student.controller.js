@@ -138,3 +138,41 @@ exports.deleteStudentInfo = (req, res) => {
     });
 };
 
+exports.searchStudent = (req, res) => {
+  var search = req.body.searchtext;
+  console.log(search);
+  // regex to find records that start with letter any name , example "e"
+  StudentInfoSchema.aggregate([{
+          $match: {
+              $or: [{
+                  cnic: {
+                      $regex: "^" + search,
+                      $options: "i"
+                  },
+              }, ]
+
+          }
+      },
+
+  ]).exec(function (err, result) {
+      if (err) {
+          return res.status(200).send({
+              success: false,
+              message: err.message
+          });
+      } else {
+          if (result > 0) {
+              return res.status(200).send({
+                  success: true,
+                  message: "no record found"
+              });
+          } else {
+              return res.status(200).send({
+                  success: true,
+                  data: result
+              });
+          }
+      }
+  });
+}
+
