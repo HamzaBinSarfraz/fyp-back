@@ -8,4 +8,6 @@ module.exports = app => {
   app.get("/studentinfo", bla.jwtVerify, StudentInfo.findAllStudent);
   app.put("/studentinfo/:id", bla.jwtVerify, StudentInfo.updateStudentInfo);
   app.delete("/studentinfo/:id", bla.jwtVerify, StudentInfo.deleteStudentInfo);
+
+  // app.post('/studentinfo', bla.jwtVerify, StudentInfo.searchStudent);
 };
