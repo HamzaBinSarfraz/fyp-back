@@ -124,6 +124,18 @@ exports.updateOne = (req, res) => {
             prerequiste5: req.body.prerequiste5
         }
     })
+    .then(data => {
+        return res.status(200).send({
+            status: true,
+            message: "success"
+        })
+    })
+    .catch(err => {
+        return res.status(200).send({
+            status: false,
+            message: err.message
+        })
+    })
 }
 
 exports.delete = (req, res) => {
